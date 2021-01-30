@@ -14,8 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('blog_dev/', include('blog.urls')),
 ]
+
+'''
+공부해야 할 
+후행 슬래쉬(trailing slash)를 사용하는 이유 
+https://djkeh.github.io/articles/Why-do-we-put-slash-at-the-end-of-URL-kor/
+'''
