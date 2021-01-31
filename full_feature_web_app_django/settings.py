@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'blog.apps.BlogConfig',  # blog/apps.py를 찾아들어가는 것 같다
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% if title %}
+
+        <title>Django Blog - {{ title }}</title>
+
+    {% else %}
+
+        <title>Django Blog</title>
+
+    {% endif %}
+</head>
+<body>
+<!-- <h1>Blog Home!</h1> -->
+    {% for post in posts %}
+
+    <h1>{{ post.title }}</h1>
+    <p>By {{ post.author }} on {{ post.date_posted }}</p>
+    <p>{{ post.content }}</p>
+
+    {% endfor %}
+</body>
+</html>
+
+<!--템플릿 태그(template tag)-->
+<!--HTML에 파이썬 코드를 바로 넣을 수 없다. 브라우저는 파이썬 코드를 이해할 수 없기 때문이다.-->
+<!--브라우저는 HTML만 알고있다. 알다시피 HTML은 정적이지만 파이썬은 동적이다.-->
+<!--템플릿 태그는 파이썬을 HTML로 바꿔주며, 빠르고 동적인 웹을 만들 수 있게 해준다.-->
