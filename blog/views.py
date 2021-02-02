@@ -1,27 +1,10 @@
 from django.shortcuts import render
-
-# MVC 패턴으로 앱 개발을 할 것으로 보인다.
-
-# 테스트용 첫번째 게시물 데이터 더미
-posts = [
-    {
-        'author': 'CoreyMS',
-        'title': 'Blog Post 1',
-        'content': 'First post content',
-        'date_posted': 'August 27, 2018'
-    },
-    {
-        'author': 'Jane Doe',
-        'title': 'Blog Post 2',
-        'content': 'Second post content',
-        'date_posted': 'August 28, 2018'
-    }
-]
+from .models import Post
 
 
 def home(request):
     context = {
-        'posts': posts
+        'posts': Post.objects.all()
     }
     # return HttpResponse('<h1>Blog Home</h1>')
     # 템플릿을 '참조'하는 방식으로 렌더링하려는 템플릿 이름
