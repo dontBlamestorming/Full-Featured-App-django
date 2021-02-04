@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import UserRegisterForm
 
-from django.contrib.auth.forms import UserCreationForm
 '''
+    from django.contrib.auth.forms import UserCreationForm
     UserCreationForm - 유효성 검사 제공
     1. 적절한 정보를 입력했는가?
     2. 기입한 2개의 암호가 일치하는가?
@@ -19,14 +19,14 @@ def register(request):
         5. 홈으로 rediect
     '''
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}!')
             return redirect('blog-home') # home.html은 base.html에 상속(?)
     else:
-        form = UserCreationForm()   # 처음 방문시에는 여기가 읽히겠지
+        form = UserRegisterForm()   # 처음 방문시에는 여기가 읽히겠지
     return render(request, 'users/register.html', {'form' : form})
 
 '''
