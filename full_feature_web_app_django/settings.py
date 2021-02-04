@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',  # blog/apps.py
     'users.apps.UsersConfig',  # users/app.py
+    'crispy_forms', # external module - 'pip3 install django-crispy-forms'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -120,3 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+'''
+    crispy - default is bootstrap 2 
+    bootstrap 2 is old and out-dated, so this code gonna make it use bootstrap 4
+'''
