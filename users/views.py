@@ -23,8 +23,10 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}!')
-            return redirect('blog-home') # home.html은 base.html에 상속(?)
+            # messages.success(request, f'Account created for {username}!')
+            messages.success(request, f'Your account has been created! You are now able to log in')
+            # return redirect('blog-home') # home.html은 base.html에 상속(?)
+            return redirect('login')
     else:
         form = UserRegisterForm()   # 처음 방문시에는 여기가 읽히겠지
     return render(request, 'users/register.html', {'form' : form})

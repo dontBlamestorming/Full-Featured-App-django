@@ -127,3 +127,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
     crispy - default is bootstrap 2 
     bootstrap 2 is old and out-dated, so this code gonna make it use bootstrap 4
 '''
+
+LOGIN_REDIRECT_URL = 'blog-home' # ?????????????????? 이유가 뭐야?
