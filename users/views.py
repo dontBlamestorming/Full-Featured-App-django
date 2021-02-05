@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
 
 '''
@@ -8,6 +9,10 @@ from .forms import UserRegisterForm
     1. 적절한 정보를 입력했는가?
     2. 기입한 2개의 암호가 일치하는가?
     3. 이미 존재하는 아이디를 입력하지는 않았는가(admin을 조회하는 듯)?
+    
+    from django.contrib.auth.decorators import login_required
+    1. url를 통해 부적절한 페이지 이동
+    2. 로그인 한 후 profile/로 이동하게 만들기 위한 모듈
 '''
 
 def register(request):
@@ -30,6 +35,10 @@ def register(request):
     else:
         form = UserRegisterForm()   # 처음 방문시에는 여기가 읽히겠지
     return render(request, 'users/register.html', {'form' : form})
+
+@login_required
+def profile(request):
+    return render(request, 'users/profile.html')
 
 '''
     messages 에러에 사용할 수 있는 method
